@@ -1,19 +1,25 @@
+import BG from './images/BG.png';
+import SYM3 from './images/SYM3.png';
+import SYM4 from './images/SYM4.png';
+import SYM5 from './images/SYM5.png';
+import SYM6 from './images/SYM6.png';
+
 const PIXI = require("pixi.js");
 
 const app = new PIXI.Application();
 document.body.appendChild(app.view);
 
 // create a new background sprite
-const background = PIXI.Sprite.from("images/BG.png");
+const background = PIXI.Sprite.from(BG);
 background.width = app.screen.width;
 background.height = app.screen.height;
 app.stage.addChild(background);
 
 app.loader
-  .add("images/SYM3.png", "images/SYM3.png")
-  .add("images/SYM4.png", "images/SYM4.png")
-  .add("images/SYM5.png", "images/SYM5.png")
-  .add("images/SYM6.png", "images/SYM6.png")
+  .add(SYM3, SYM3)
+  .add(SYM4, SYM4)
+  .add(SYM5, SYM5)
+  .add(SYM6, SYM6)
 
   .load(onAssetsLoaded);
 
@@ -24,10 +30,10 @@ const SYMBOL_SIZE = 140;
 function onAssetsLoaded() {
   // Create different slot symbols.
   const slotTextures = [
-    PIXI.Texture.from("images/SYM3.png"),
-    PIXI.Texture.from("images/SYM4.png"),
-    PIXI.Texture.from("images/SYM5.png"),
-    PIXI.Texture.from("images/SYM6.png"),
+    PIXI.Texture.from(SYM3),
+    PIXI.Texture.from(SYM4),
+    PIXI.Texture.from(SYM5),
+    PIXI.Texture.from(SYM6),
   ];
 
   const reels = [];
