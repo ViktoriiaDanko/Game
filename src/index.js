@@ -1,4 +1,4 @@
-import BG from './images/BG.png';
+import BG from   './images/BG.png';
 import SYM3 from './images/SYM3.png';
 import SYM4 from './images/SYM4.png';
 import SYM5 from './images/SYM5.png';
@@ -6,7 +6,13 @@ import SYM6 from './images/SYM6.png';
 
 const PIXI = require("pixi.js");
 
-const app = new PIXI.Application();
+const app = new PIXI.Application({ 
+  width: 800,         // default: 800
+  height: 600,        // default: 600
+  antialias: false,    // default: false
+  transparent: false, // default: false
+  resolution: 1       // default: 1
+});
 document.body.appendChild(app.view);
 
 // create a new background sprite
@@ -14,6 +20,8 @@ const background = PIXI.Sprite.from(BG);
 background.width = app.screen.width;
 background.height = app.screen.height;
 app.stage.addChild(background);
+
+
 
 app.loader
   .add(SYM3, SYM3)
@@ -40,7 +48,7 @@ function onAssetsLoaded() {
   const reelContainer = new PIXI.Container();
   for (let i = 0; i < 3; i++) {
     const rc = new PIXI.Container();
-    rc.x = i * REEL_WIDTH;
+    rc.x = i * 200;
     reelContainer.addChild(rc);
 
     const reel = {
@@ -84,7 +92,6 @@ function onAssetsLoaded() {
   bottom.beginFill(0, 1);
   bottom.drawRect(0, SYMBOL_SIZE * 3 + margin, app.screen.width, margin);
 
-  // Add play text
   const style = new PIXI.TextStyle({
     fontFamily: "Arial",
     fontSize: 40,

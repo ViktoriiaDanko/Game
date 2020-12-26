@@ -39,8 +39,7 @@ module.exports = {
             ${htmlWebpackPlugin.tags.headTags}
           </head>
           <body>
-            <h1>Hello World</h1>
-            ${htmlWebpackPlugin.tags.bodyTags}
+            <h1>MY FIRST GAME</h1>
           </body>
         </html>
       `,
